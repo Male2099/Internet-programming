@@ -1,0 +1,143 @@
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    width: 800px;
+    height: 650px;
+    padding: 2rem;
+    border: 5px solid black;
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 0;
+    overflow: auto;
+}
+
+.wrapper>:nth-child(1) {
+    height: 30%;
+}
+
+.wrapper>:nth-child(2) {
+    min-height: 12%;
+    font-family: Irish Grover;
+    font-size: 2rem;
+}
+
+.wrapper>:nth-child(3) {
+    min-height: 2.3rem;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+
+}
+
+#select-country {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    appearance: none;
+    
+}
+
+#select-country:hover {
+    cursor: pointer;
+}
+
+.select-icon {
+    width: 10%;
+    height: 100%;
+    /* display: flex;
+    justify-content: center;
+    align-items: center; */
+    position: relative;
+
+
+}
+
+.select-icon i {
+    position: absolute;
+    top: 15%;
+    right: 140%;
+    height: 65%;
+    width: 70%;
+    clip-path: polygon(50% 100%, 0 0, 100% 0);
+    ;
+    background-color: rgb(208, 208, 208);
+}
+
+#uniList {
+    font-family: sans-serif;
+    height: fit-content;
+    width: 90%;
+
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 12rem);
+    grid-template-rows: 5.5rem;
+    gap: 3rem 3rem;
+
+    place-content: center center;
+}
+
+.link-wrapper {
+    color: hsl(216, 100%, 50%);
+    ;
+    display: flex;
+    align-items: center;
+    column-gap: 4px;
+    /* overflow-x: auto; */
+    width: 100%;
+
+    font-size: 0.8rem;
+    padding-left: 1rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+#uniList>* {
+    height: 100%;
+    width: 100%;
+    padding: 0.6rem;
+    margin-top: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background-color: #efefef;
+    border-radius: 10px;
+    border: 1px solid #a8a5a565;
+}
+
+#uniList>*>p {
+    margin-top: 4px;
+
+}
+
+strong {
+    width: fit-content;
+    height: fit-content;
+
+}
+
+.loader-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: fit-content;
+    width: fit-content;
+}
+
+#loader {
+    overflow: hidden;
+    transform: translate(20%, 60%);
+
+}

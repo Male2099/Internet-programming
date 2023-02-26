@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="wrapper">
+        <div style="font-size: 5rem;"><img src="./earth.webp" style="height: 8rem;"></div>
+        <div>I know your <span style="color:hsl(224, 100%, 51%)">Home</span></div>
+        <div>
+            <input type="text" id="name" placeholder=" Tell me your first name">
+            <button onclick="guestHome()">Guess</button>
+        </div>
+        <div class="loader-wrapper"><iframe id="loader" src="../loader.html" frameborder="0"></iframe></div>
+
+        <div id="guess-home">
+
+        </div>
+    </div>
+    <script>
+        const home = document.getElementById("guess-home");
+        const name = document.getElementById("name");
+        const loader=document.getElementById("loader");
+        loader.style.display="none"
+        function guestHome() {
+            if(noData()) return;
+            home.innerHTML="";
+            loader.style.display="block"
+            fetch(`https://api.nationalize.io/?name=${name.value}`).then(async (res) => {
+                let data = await res.json();
+                loader.style.display="none"
+                let obj=data.country; 
+    
+                if(nullCountry(obj)) return;
+                home.innerHTML="";
+                for(let n of obj){
+                    home.innerHTML+=`   <div>
+                                            <div>${n.country_id}</div>    
+                                            <div>${(n.probability*100).toFixed(2)}%</div>    
+                                        </div>`
+                }
+            }).catch(()=>{
+                home.innerHTML=` <div><div class="center"><div class="noData ">X</div></div></div>`
+                loader.style.display="none"
+            })
+        }
+        function noData(){
+            if(name.value==""){
+                home.innerHTML=` <div><div class="center"><div class="noData ">X</div></div></div>`
+                return true;
+            }
+            return false;
+        }
+
+        function nullCountry(obj){
+            if(obj==undefined) return false;
+            if(obj.length==0){
+                home.innerHTML=` <div><div class="center"><div class="noData">X</div></div></div>`
+                return true;
+            }
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div style="font-size: 5rem;">🤔</div>
+        <div>I know your <span style="color:hsl(224, 100%, 51%)">Gender</span></div>
+        <div>
+            <input type="text" id="name" placeholder=" Tell me your name">
+            <button onclick="guestGender()">Guess</button>
+        </div>
+
+        <div class="loader-wrapper"><iframe id="loader" src="../loader.html" frameborder="0"></iframe></div>
+        
+        <div id="gender-guess">
+        </div>
+    </div>
+    <script>
+        const gender = document.getElementById("gender-guess");
+        const name = document.getElementById("name");
+        const loader=document.getElementById("loader");
+
+        loader.style.display="none"
+        function guestGender() {
+            gender.innerHTML="";
+            if(noData()) return;
+            loader.style.display="block"
+            fetch(`https://api.genderize.io/?name=${name.value}`).then(async (res) => {
+
+                let data = await res.json();
+                loader.style.display="none"
+                if(nullGender(data.gender)) return;
+                gender.innerHTML=`            
+                                    <div>${data["name"]}</div>
+                                    <div>${data["gender"]=="male"?"Male":"Female"}</div>
+                                    <div>${Math.floor(data["probability"]*100)}%</div>`
+            })
+        }
+
+        function noData(){
+            if(name.value==""){
+                gender.innerHTML=` <div><div class="noData">X</div></div>`
+                return true;
+            }
+            return false;
+        }
+
+        function nullGender(gen){
+            if(gen==null){
+                gender.innerHTML=` <div><div class="noData">X</div></div>`
+                return true;
+            }
+            return false;
+        }
+    </script>
+
+</body>
+
+</html>
