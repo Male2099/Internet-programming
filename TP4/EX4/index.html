@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random color generator</title>
+
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        .wrapper-shadow {
+            box-shadow: 0.4rem 0.4rem 0.6rem rgb(159, 159, 159);
+            background-color: hsl(47, 100%, 50%);
+        }
+    </style>
+    <script src="../tailwind_.js"></script>
+</head>
+
+<body>
+    
+    <div class=" h-[100vh] w-full grid place-items-center ">
+        <div
+            class=" grid place-items-center h-[40rem] w-[28rem] px-[1rem] py-[0.5rem] border-[0.4rem] bg-gray-200 border-black wrapper-shadow">
+            <div id="bgColor" class="w-full h-full pb-4 border-[0.5px] border-gray-400">
+                <div class=" w-full h-[4rem] pl-[1rem] flex items-center font-bold text-[#4d79ff] bg-white">Random Color
+                    Generator</div>
+                <div
+                    class=" h-[8rem] pt-4 mx-1 mt-2 border border-none rounded bg-black  text-[2rem] font-bold flex flex-col items-center text-white">
+                    <div>Background Color:</div>
+
+                    <div id="hexColor" class=" text-[#1a53ff]"></div>
+                </div>
+
+                <div class=" h-[6rem] flex justify-center items-end gap-x-1 pb-2">
+                    <button id="generate" class=" h-fit w-fit px-4 py-2 font-bold border-2 rounded border-black"
+                        onclick="generateColor()">GENERATE</button>
+                    <button id="reset" class=" h-fit w-fit px-4 py-2 font-bold border-2 rounded border-black "
+                        onclick="resetData()">RESET</button>
+                </div>
+
+                <div class=" h-[18rem] overflow-y-auto">
+                    <div id="record" class="p-4 bg-white "></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    
+
+    <script>
+        class Color {
+            record = [];
+            // colorType='';
+            constructor() {
+                localStorage.getItem("ReCoRdCoLoR") != null
+                // this.colorType=type;
+            }
+            generate() {
+                const x = "#" + this.getRandom() + this.getRandom() + this.getRandom() + this.getRandom() + this.getRandom() + this.getRandom();
+
+                this.record.push(x);
+                return x;
+            }
+            getRandom() {
+                const arr = ["A", "B", "C", "D", "E", "F"];
+                const x = Math.floor(Math.random() * 16);
+                return x >= 10 ? arr[x - 10] : x;
+            }
+            getRecords() {
+                if (localStorage.getItem("ReCoRdCoLoR") != null && localStorage.getItem("ReCoRdCoLoR") != "undefined") {
+                    const x = JSON.parse(localStorage.getItem("ReCoRdCoLoR"));
+                    for (let y of x) {
+                        this.record.push(y);
+                    }
+
+                }
+            }
+            reset() {
+                localStorage.removeItem("ReCoRdCoLoR");
+            }
+        }
+
+        displayRecord();
+        function displayRecord() {
+            let color = new Color();
+            color.getRecords();
+
+            if (color.record.length == 0) document.getElementById("hexColor").innerHTML = "#E5E7EB";//default bg color
+            else {
+                document.getElementById("hexColor").innerHTML = color.record[0];
+                document.getElementById("bgColor").style.backgroundColor = color.record[0];
+            }
+
+            for (let y of color.record) {
+                document.getElementById("record").innerHTML += `<p>${y} <span class=" w-[1rem] h-[1rem] bg-[${y}]">&ensp;&ensp;</span></p>`
+            }
+        }
+
+        function resetData() {
+            let color = new Color()
+            color.reset();
+            document.getElementById("record").innerHTML = "";
+            document.getElementById("bgColor").style.backgroundColor = "#E5E7EB"
+            document.getElementById("hexColor").innerHTML = "#E5E7EB";
+
+            document.getElementById("generate").style.backgroundColor = "inherit"
+            document.getElementById("generate").style.color = "black"
+            document.getElementById("reset").style.backgroundColor = "black"
+            document.getElementById("reset").style.color = "white"
+        }
+
+        function generateColor() {
+            let color = new Color();
+            color.generate();
+            color.getRecords();
+            let data = JSON.stringify(color.record);//turn record array into a signle string tp store 
+
+            document.getElementById("record").innerHTML = "";
+            localStorage.setItem("ReCoRdCoLoR", data);
+            displayRecord();
+
+            document.getElementById("generate").style.backgroundColor = "black"
+            document.getElementById("generate").style.color = "white"
+            document.getElementById("reset").style.backgroundColor = "inherit"
+            document.getElementById("reset").style.color = "black"
+        }
+    </script>
+</body>
+
+</html>

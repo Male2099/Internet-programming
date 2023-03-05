@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Menu</title>
+    <style>
+        .wrapper-shadow {
+            box-shadow: 0.4rem 0.4rem 0.6rem rgb(159, 159, 159);
+            background-color: hsl(47, 100%, 50%);
+        }
+    </style>
+    <script src="../tailwind_.js"></script>
+</head>
+
+<body class=" flex justify-center pt-10 m">
+    <div
+        class=" h-[51rem] w-[40rem] px-8 pt-16 border-[0.4rem] bg-gray-200 border-black wrapper-shadow overflow-y-auto">
+        <div class=" flex flex-col items-center gap-y-2">
+            <Strong class=" text-[1.8rem]">Our Menu</Strong>
+            <div class="w-[7rem] border-b-[3px] border-yellow-600 "></div>
+            <br>
+        </div>
+
+
+        <div class=" flex justify-center gap-x-4">
+            <button id="all" onclick="getListOfFood(this)"
+                class="text-yellow-600 font-[560] h-8 p-3 border-2 rounded-lg border-yellow-600 border-b-yellow-800 border-r-yellow-700 flex justify-center items-center bg-yellow-100">
+                All</button>
+            <button id="breakfast" onclick="getListOfFood(this)"
+                class="text-yellow-600 font-[560] h-8 p-3 border-2 rounded-lg border-yellow-600 border-b-yellow-800 border-r-yellow-700 flex justify-center items-center">
+                Breakfast</button>
+            <button id="launch" onclick="getListOfFood(this)"
+                class="text-yellow-600 font-[560] h-8 p-3 border-2 rounded-lg border-yellow-600 border-b-yellow-800 border-r-yellow-700 flex justify-center items-center">
+                Launch</button>
+            <button id="shake" onclick="getListOfFood(this)"
+                class="text-yellow-600 font-[560] h-8 p-3 border-2 rounded-lg border-yellow-600 border-b-yellow-800 border-r-yellow-700 flex justify-center items-center">
+                Shakes</button>
+            <button id="dinner" onclick="getListOfFood(this)"
+                class="text-yellow-600 font-[560] h-8 p-3 border-2 rounded-lg border-yellow-600 border-b-yellow-800 border-r-yellow-700 flex justify-center items-center">
+                Dinner</button>
+        </div>
+        <br>
+
+
+
+        
+        <div id="breakfasts">
+            	
+            <div class=" 2xl:grid 2xl:justify-items-center pt-[1.5rem]">
+                <div class="pt-0 grid grid-cols-2 2xl:grid-cols-1 ">
+                    <div
+                        class="h-[8rem] w-[10rem] ml-[1.5rem] border-[3px] rounded-2xl border-yellow-600 overflow-hidden  2xl:w-[25rem] 2xl:h-[12rem]">
+                        <div
+                            class=" relative w-[18rem] h-[8rem] overflow-hidden 2xl:static 2xl:h-[12rem] 2xl:w-[25rem]">
+                            <img src="./Ex2Image/breakfast1.png"
+                                class=" absolute h-[7.8rem] left-[-3rem] 2xl:static 2xl:h-[12rem]">
+                        </div>
+                    </div>
+                    <div class=" h-full w-[25rem] ml-[-5.6rem] pr-[3rem] 2xl:ml-[1.7rem] ">
+                        <Strong>U n k n o w n </Strong>
+                        <hr class=" h-[0.5px] border-none w-[23rem] bg-gray-400 2xl:w-[25rem] ">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat cupiditate</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class=" 2xl:grid 2xl:justify-items-center pt-[1.5rem]">
+                <div class="pt-0 grid grid-cols-2 2xl:grid-cols-1 ">
+                    <div
+                        class="h-[8rem] w-[10rem] ml-[1.5rem] border-[3px] rounded-2xl border-yellow-600 overflow-hidden  2xl:w-[25rem] 2xl:h-[12rem]">
+                        <div
+                            class=" relative w-[18rem] h-[8rem] overflow-hidden 2xl:static 2xl:h-[12rem] 2xl:w-[25rem]">
+                            <img src="./Ex2Image/lunch1.png"
+                                class=" absolute h-[7.8rem] left-[-3rem] 2xl:static 2xl:h-[12rem]">
+                        </div>
+                    </div>
+                    <div class=" h-full w-[25rem] ml-[-5.6rem] pr-[3rem] 2xl:ml-[1.7rem] ">
+                        <Strong>U n k n o w n </Strong>
+                        <hr class=" h-[0.5px] border-none w-[23rem] bg-gray-400 2xl:w-[25rem] ">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat cupiditate</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+            <div id="launchs">
+
+                <div class=" 2xl:grid 2xl:justify-items-center pt-[1.5rem]">
+                    <div class="pt-0 grid grid-cols-2 2xl:grid-cols-1 ">
+                        <div
+                            class="h-[8rem] w-[10rem] ml-[1.5rem] border-[3px] rounded-2xl border-yellow-600 overflow-hidden  2xl:w-[25rem] 2xl:h-[12rem]">
+                            <div
+                                class=" relative w-[18rem] h-[8rem] overflow-hidden 2xl:static 2xl:h-[12rem] 2xl:w-[25rem]">
+                                <img src="./Ex2Image/lunch2.png"
+                                    class=" absolute h-[7.8rem] left-[-3rem] 2xl:static 2xl:h-[12rem]">
+                            </div>
+                        </div>
+                        <div class=" h-full w-[25rem] ml-[-5.6rem] pr-[3rem] 2xl:ml-[1.7rem] ">
+                            <Strong>U n k n o w n </Strong>
+                            <hr class=" h-[0.5px] border-none w-[23rem] bg-gray-400 2xl:w-[25rem] ">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat cupiditate</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class=" 2xl:grid 2xl:justify-items-center pt-[1.5rem]">
+                    <div class="pt-0 grid grid-cols-2 2xl:grid-cols-1 ">
+                        <div
+                            class="h-[8rem] w-[10rem] ml-[1.5rem] border-[3px] rounded-2xl border-yellow-600 overflow-hidden  2xl:w-[25rem] 2xl:h-[12rem]">
+                            <div
+                                class=" relative w-[18rem] h-[8rem] overflow-hidden 2xl:static 2xl:h-[12rem] 2xl:w-[25rem]">
+                                <img src="./Ex2Image/dinner1.png"
+                                    class=" absolute h-[7.8rem] left-[-3rem] 2xl:static 2xl:h-[12rem]">
+                            </div>
+                        </div>
+                        <div class=" h-full w-[25rem] ml-[-5.6rem] pr-[3rem] 2xl:ml-[1.7rem] ">
+                            <Strong>U n k n o w n </Strong>
+                            <hr class=" h-[0.5px] border-none w-[23rem] bg-gray-400 2xl:w-[25rem] ">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat cupiditate</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            
+
+            <div id="shakes">
+
+                <div class=" 2xl:grid 2xl:justify-items-center pt-[1.5rem]">
+                    <div class="pt-0 grid grid-cols-2 2xl:grid-cols-1 ">
+                        <div
+                            class="h-[8rem] w-[10rem] ml-[1.5rem] border-[3px] rounded-2xl border-yellow-600 overflow-hidden  2xl:w-[25rem] 2xl:h-[12rem]">
+                            <div
+                                class=" relative w-[18rem] h-[8rem] overflow-hidden 2xl:static 2xl:h-[12rem] 2xl:w-[25rem]">
+                                <img src="./Ex2Image/shake2.png"
+                                    class=" absolute h-[7.8rem] left-[-3rem] 2xl:static 2xl:h-[12rem]">
+                            </div>
+                        </div>
+                        <div class=" h-full w-[25rem] ml-[-5.6rem] pr-[3rem] 2xl:ml-[1.7rem] ">
+                            <Strong>U n k n o w n </Strong>
+                            <hr class=" h-[0.5px] border-none w-[23rem] bg-gray-400 2xl:w-[25rem] ">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat cupiditate</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class=" 2xl:grid 2xl:justify-items-center pt-[1.5rem]">
+                    <div class="pt-0 grid grid-cols-2 2xl:grid-cols-1 ">
+                        <div
+                            class="h-[8rem] w-[10rem] ml-[1.5rem] border-[3px] rounded-2xl border-yellow-600 overflow-hidden  2xl:w-[25rem] 2xl:h-[12rem]">
+                            <div
+                                class=" relative w-[18rem] h-[8rem] overflow-hidden 2xl:static 2xl:h-[12rem] 2xl:w-[25rem]">
+                                <img src="./Ex2Image/shake1.png"
+                                    class=" absolute h-[7.8rem] left-[-3rem] 2xl:static 2xl:h-[12rem]">
+                            </div>
+                        </div>
+                        <div class=" h-full w-[25rem] ml-[-5.6rem] pr-[3rem] 2xl:ml-[1.7rem] ">
+                            <Strong>U n k n o w n</Strong>
+                            <hr class=" h-[0.5px] border-none w-[23rem] bg-gray-400 2xl:w-[25rem] ">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat cupiditate</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        <div id="dinners">
+            
+            <div class=" 2xl:grid 2xl:justify-items-center pt-[1.5rem]">
+                <div class="pt-0 grid grid-cols-2 2xl:grid-cols-1 ">
+                    <div
+                        class="h-[8rem] w-[10rem] ml-[1.5rem] border-[3px] rounded-2xl border-yellow-600 overflow-hidden  2xl:w-[25rem] 2xl:h-[12rem]">
+                        <div
+                            class=" relative w-[18rem] h-[8rem] overflow-hidden 2xl:static 2xl:h-[12rem] 2xl:w-[25rem]">
+                            <img src="./Ex2Image/dinner3.png"
+                                class=" absolute h-[7.8rem] left-[-3rem] 2xl:static 2xl:h-[12rem]">
+                        </div>
+                    </div>
+                    <div class=" h-full w-[25rem] ml-[-5.6rem] pr-[3rem] 2xl:ml-[1.7rem] ">
+                        <Strong>U n k n o w n </Strong>
+                        <hr class=" h-[0.5px] border-none w-[23rem] bg-gray-400 2xl:w-[25rem] ">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat cupiditate</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class=" 2xl:grid 2xl:justify-items-center pt-[1.5rem]">
+                <div class="pt-0 grid grid-cols-2 2xl:grid-cols-1 ">
+                    <div
+                        class="h-[8rem] w-[10rem] ml-[1.5rem] border-[3px] rounded-2xl border-yellow-600 overflow-hidden  2xl:w-[25rem] 2xl:h-[12rem]">
+                        <div
+                            class=" relative w-[18rem] h-[8rem] overflow-hidden 2xl:static 2xl:h-[12rem] 2xl:w-[25rem]">
+                            <img src="./Ex2Image/dinner1.png"
+                                class=" absolute h-[7.8rem] left-[-3rem] 2xl:static 2xl:h-[12rem]">
+                        </div>
+                    </div>
+                    <div class=" h-full w-[25rem] ml-[-5.6rem] pr-[3rem] 2xl:ml-[1.7rem] ">
+                        <Strong>U n k n o w n</Strong>
+                        <hr class=" h-[0.5px] border-none w-[23rem] bg-gray-400 2xl:w-[25rem] ">
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat cupiditate</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    <script>
+        function getListOfFood(buttonNode) {
+            let parent = buttonNode.parentNode;
+            parent.children[0].style.backgroundColor = "white";
+            parent.children[1].style.backgroundColor = "white";
+            parent.children[2].style.backgroundColor = "white";
+            parent.children[3].style.backgroundColor = "white";
+            parent.children[4].style.backgroundColor = "white";
+
+            let button = buttonNode.id;
+            let bf = document.getElementById("breakfasts");
+            let l = document.getElementById("launchs");
+            let sh = document.getElementById("shakes");
+            let dn = document.getElementById("dinners");
+            bf.style.display = "none";
+            l.style.display = "none";
+            sh.style.display = "none";
+            dn.style.display = "none";
+
+            if (button == "all") {
+                bf.style.display = "block";
+                l.style.display = "block";
+                sh.style.display = "block";
+                dn.style.display = "block";
+            } else if (button == "breakfast") bf.style.display = "block";
+            else if (button == "launch") l.style.display = "block";
+            else if (button == "shake") sh.style.display = "block";
+            else if (button == "dinner") dn.style.display = "block";
+            buttonNode.style.backgroundColor = "rgb(300 249 195)";
+        }
+    </script>
+</body>
+</html>

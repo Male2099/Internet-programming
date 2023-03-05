@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab</title>
+    <script src="../tailwind_.js"></script>
+    <style>
+        .wrapper-shadow{
+            box-shadow: 0.4rem 0.4rem 0.6rem rgb(159, 159, 159);
+        }
+    </style>
+</head>
+
+<body class=" flex justify-center pt-10">
+    <div class="h-[50rem] min-w-[20rem] w-[40rem] px-8 pt-16 border-[0.4rem] bg-gray-200 border-black overflow-auto wrapper-shadow">
+        <div class=" mb-14">
+            <strong class="flex justify-center text-3xl">About</strong>
+            <p class="flex justify-center"> Lorem ipsum Magnam sint consequuntur quibusdam, laudantium</p>
+        </div>
+
+        <img src="./RoldImage.png" class=" rounded-lg w-full">
+
+        <div id="tab" class=" h-14 flex flex-row flex-grow justify-around mt-6">
+            <button id="historyTab" class=" h-full w-full rounded-tl-lg text-[1.2rem] font-semibold bg-white"
+                onclick="OpenTab('history', this)">History</button>
+            <button id="visionTab" class=" h-full w-full text-[1.2rem] font-semibold  bg-gray-300" onclick="OpenTab('vision', this)">Vision</button>
+            <button id="goalsTab" class=" h-full w-full rounded-tr-lg text-[1.2rem] font-semibold  bg-gray-300"
+                onclick="OpenTab('goals', this)">Goals</button>
+        </div>
+        <div id="history" class="p-6 rounded-b-lg bg-white">
+            <strong class=" leading-[2.8rem]">History</strong>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Temporibus aliquid doloribus veniam, perferendis odit beatae iusto facere dolor earum, ex iure ipsa unde voluptate laboriosam quaerat enim suscipit porro mollitia.</p>
+        </div>
+        <div id="vision" class="p-6 hidden rounded-b-lg bg-white">
+            <strong class=" leading-[2.8rem]">Vision</strong>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Ducimus, commodi alias? Quos cupiditate totam error mollitia magnam reprehenderit voluptatibus impedit eos
+                natus perspiciatis, aliquam autem minus assumenda quis eveniet ratione?
+            </p>
+            <ul>
+                <li>Item1</li>
+                <li>Item1</li>
+                <li>Item1</li>
+            </ul>
+        </div>
+        <div id="goals" class="p-6 hidden  rounded-b-lg bg-white">
+            <strong class="leading-[2.8rem]">Goals</strong>
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit.
+                Quia distinctio quisquam minima sunt ad vitae at eius laudantium nemo quidem, fugiat reprehenderit itaque
+                cum in deleniti quis laborum recusandae similique. Lorem ipsum dolor sit amet consectetur adipisicing elit. At amet doloremque quisquam sit? Illo aperiam pariatur minima quam id animi voluptatibus numquam totam vero, sit sapiente vitae itaque consectetur enim!
+            </p>
+        </div>
+    </div>
+
+
+    <script>
+        function OpenTab(tabName, currentNode) {
+            document.getElementById("history").style.display = "none";
+            document.getElementById("vision").style.display = "none";
+            document.getElementById("goals").style.display = "none";
+            document.getElementById(tabName).style.display = "block";
+
+            let parent = document.getElementById("tab");
+            parent.children[0].style.backgroundColor = "rgb(209 213 219";
+            parent.children[1].style.backgroundColor = "rgb(209 213 219";
+            parent.children[2].style.backgroundColor = "rgb(209 213 219";
+
+            currentNode.style.backgroundColor = "white";
+        }
+    </script>
+</body>
+
+</html>

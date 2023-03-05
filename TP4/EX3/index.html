@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Counter</title>
+
+    <style>
+        * {
+            font-family: sans-serif;
+        }
+        .wrapper-shadow {
+            box-shadow: 0.4rem 0.4rem 0.6rem rgb(159, 159, 159);
+            background-color: hsl(47, 100%, 50%);
+        }
+    </style>
+    <script src="../tailwind_.js"></script>
+</head>
+<body>
+    <div class=" h-[100vh] w-full grid place-items-center ">
+        <div class=" grid place-items-center min-h-[45rem] h-fit w-[30rem] px-8 py-[10rem] border-[0.4rem] bg-gray-200 border-black wrapper-shadow">
+            <div class=" text-[4rem] font-bold text-[#00004d]">Counter</div>
+            <div id="count" class=" text-[10rem] text-[#00802b]"></div>
+
+            <div class="w-full flex justify-between">
+                <button id="decrease" class=" border-2 rounded-sm py-[0.1rem] px-2 border-black"
+                    onclick="CountOperation(this)">DECREASE</button>
+                <button id="reset" class=" border-2 rounded-sm py-[0.1rem] px-2 border-black"
+                    onclick="CountOperation(this)">RESET</button>
+                <button id="increase" class=" border-2 rounded-sm py-[0.1rem] px-2 border-black"
+                    onclick="CountOperation(this)">INCREASE</button>
+            </div>
+            <div></div>
+        </div>
+    </div>
+
+    <script>
+        class Counter {
+            constructor(number) {
+                this.number = number;
+            }
+            increase() {
+                this.number++
+            }
+            decrease() {
+                this.number -= 1;
+            }
+            reset() {
+                this.number = 0;
+            }
+            getNum() {
+                return this.number;
+            }
+        }
+
+        (function lastCount() {
+            let x = 0;
+            if (localStorage.getItem("CoUnTeR") != null) x = localStorage.getItem("CoUnTeR");
+            document.getElementById("count").innerHTML = x;
+        })();
+
+        function CountOperation(buttonClicked) {
+            let parent = buttonClicked.parentNode;
+            parent.children[0].style.backgroundColor = "white"
+            parent.children[1].style.backgroundColor = "white"
+            parent.children[2].style.backgroundColor = "white"
+
+            parent.children[0].style.color = "black"
+            parent.children[1].style.color = "black"
+            parent.children[2].style.color = "black"
+
+            let counter = new Counter(localStorage.getItem("CoUnTeR"));
+            if (buttonClicked.id == "increase") counter.increase();
+            else if (buttonClicked.id == "reset") counter.reset();
+            else if (buttonClicked.id == "decrease") counter.decrease();
+            else return;
+
+            document.getElementById("count").innerHTML = counter.getNum();
+            localStorage.setItem("CoUnTeR", counter.getNum());
+
+            buttonClicked.style.backgroundColor = "black";
+            buttonClicked.style.color = "white";
+        }
+    </script>
+</body>
+
+</html>
