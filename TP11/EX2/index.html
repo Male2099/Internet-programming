@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        padding: 0;
+        margin: 0;
+        /* box-sizing: border-box; */
+    }
+
+    ::-webkit-scrollbar {
+        width: 5px;
+        height: 5px;
+    }
+
+    ::-webkit-scrollbar-track {
+        border: 0.01vh solid rgb(114, 114, 114);
+        border-radius: 1rem;
+        margin-block: 1rem;
+        margin-inline: 3rem;
+
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border: 0.01vh solid rgb(114, 114, 114);
+        border-radius: 1rem;
+
+        background-image: linear-gradient(120deg, #4b4b4b 10%, hsl(0, 0%, 39%) 100%);
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background-image: linear-gradient(120deg, #636363 10%, hsl(0, 0%, 44%) 100%);
+    }
+
+    /* ::-webkit-scrollbar-thumb:active {
+        background-image: linear-gradient(120deg, #eda143 10%, hsl(36, 95%, 30%) 100%);
+    } */
+
+    .app {
+        height: 100vh;
+        width: 100%;
+        
+        overflow: hidden;
+    }
+
+    .head {
+        width: 100%;
+        height: 6%;
+
+    }
+
+    .head h1 {
+        margin: auto;
+        width: fit-content;
+    }
+
+    .wrapper {
+        height: 94%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .sec-right {
+        padding: 1rem;
+        height: calc(100% - 2rem);
+        width: calc(86% - 2rem);
+        border: 2px solid black;
+        border-left: none;
+
+        overflow: auto;
+    }
+
+    .box-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .6rem;
+    }
+
+    .box {
+        width: 10rem;
+        height: 16rem;
+        border: 2px solid black;
+        border-radius: 4px;
+        overflow: hidden;
+        box-shadow: 1px 3px 4px hsl(0, 0%, 60%);
+    }
+
+    .box:hover {
+        box-shadow: 2px 2px 5px hsl(0, 0%, 0%);
+    }
+
+    .data-wrapper {
+        height: 100%;
+        /* overflow: auto; */
+    }
+
+    .img-wrap {
+        height: 30%;
+    }
+
+    .title {
+        padding: .7rem 0 0 0;
+        text-align: center;
+    }
+
+    .shop-price {
+        height: 55%;
+        padding: 0 .3rem 0 .3rem;
+        overflow: auto;
+        list-style: none;
+        margin-top: .4rem;
+    }
+
+    .shop-price li {
+        padding: 0;
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+
+
+    .sec-left {
+        border: 2px solid black;
+        padding-top: 1rem;
+
+        height: calc(100% - 2rem);
+        width: calc(15% - 2rem);
+        border: 2px solid black;
+        overflow: auto;
+    }
+
+    .ctg-box {}
+
+    .ctg-box>:first-child {
+        width: 100%;
+        display: flex;
+        gap: .3rem;
+
+    }
+
+    .ctg-box ul {
+        display: flex;
+        flex-direction: column;
+        margin-top: .6rem;
+        margin-left: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .ctg-box li {
+        padding: .2rem 2.2rem
+    }
+
+    .ctg-box li::before {
+        content: "- ";
+    }
+
+    .ctg-box li:hover {
+        /* border-color:black ; */
+        background-color: grey;
+    }
+</style>
+
+<body>
+    <div class="app">
+        <div class="head">
+            <h1>Trash App.com</h1>
+        </div>
+        <div class="wrapper">
+            <section class="sec-left">
+                <div class="ctg-box">
+                    <div>
+                        <div style="padding-left: 1rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6" style="height: 1.1rem;">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                            </svg>
+                        </div>
+                        <strong>Phone</strong>
+                    </div>
+                    <ul>
+                        <li>1</li>
+                    </ul>
+                </div>
+                <div class="ctg-box">
+                    <div style="padding-left: 1rem;">
+                        <div>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6"  style="height: 1.1rem;">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                            </svg>
+
+                        </div>
+                        <strong>Computer</strong>
+                    </div>
+                    <ul>
+                        <li>1</li>
+                    </ul>
+                </div>
+                <div class="ctg-box">
+                    <div>
+                        <div style="padding-left: 1rem;">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                                stroke="currentColor" class="w-6 h-6"  style="height: 1.1rem;">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
+                            </svg>
+
+                        </div>
+                        <strong>Monitor</strong>
+                    </div>
+                    <ul>
+                        <li>1</li>
+                    </ul>
+                </div>
+            </section>
+            <section class="sec-right">
+                <div class="box-wrapper">
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="box">
+                        <div class="data-wrapper">
+                            <div class="img-wrap"><img src="#" alt=""></div>
+                            <div class="title"><strong>title</strong></div>
+                            <div style="overflow: auto !important; height: 100%">
+                                <ul class="shop-price">
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                    <li>
+                                        <span>shop1</span>
+                                        <span>99$</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
